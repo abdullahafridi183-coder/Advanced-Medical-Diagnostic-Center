@@ -334,6 +334,45 @@
                 flex-wrap: wrap;
             }
         }
+        .whatsapp-btn {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  background: #25D366;
+  color: white;
+  text-decoration: none;
+
+  padding: 12px 18px;
+  border-radius: 50px;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+.whatsapp-btn:hover {
+  transform: scale(1.05);
+}
+
+.whatsapp-btn span {
+  font-size: 20px;
+}
+
+@media (max-width: 600px) {
+  .whatsapp-btn {
+    right: 15px;
+    bottom: 15px;
+    padding: 11px 15px;
+  }
+}
     </style>
 </head>
 <body>
@@ -544,5 +583,14 @@
             this.min = today;
         });
     </script>
+<a
+  href="https://wa.me/923464422378"
+  class="whatsapp-btn"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <span>💬</span> WhatsApp
+</a>
+    
 </body>
 </html>
