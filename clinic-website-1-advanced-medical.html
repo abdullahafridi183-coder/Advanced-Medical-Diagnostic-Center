@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Advanced Medical Diagnostic Center - Comprehensive medical diagnostics and screening for visa and medical checkups in Lahore, Pakistan">
+    <title>Advanced Medical Diagnostic Center — Lahore</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        header {
+            background: #fff;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1a73e8;
+            text-decoration: none;
+        }
+        
+        nav a {
+            margin-left: 2rem;
+            text-decoration: none;
+            color: #333;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: #1a73e8;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, #1a73e8 0%, #0d47a1 100%);
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+        
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            background: #1a73e8;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            margin: 0.5rem;
+            font-size: 0.95rem;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .btn:hover {
+            background: #0d47a1;
+        }
+        
+        .btn-white {
+            background: white;
+            color: #1a73e8;
+            border: 2px solid white;
+        }
+        
+        .btn-white:hover {
+            background: transparent;
+            color: white;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        
+        .section {
+            margin: 3rem 0;
+        }
+        
+        .section h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #1a73e8;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .service-card {
+            background: #f5f5f5;
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid #1a73e8;
+        }
+        
+        .service-card h3 {
+            color: #1a73e8;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .service-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .about-box {
+            background: #f9f9f9;
+            padding: 3rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+        
+        .about-box h3 {
+            color: #1a73e8;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #333;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+        
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #1a73e8;
+            box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.1);
+        }
+        
+        .form-container {
+            max-width: 600px;
+            margin: 2rem auto;
+        }
+        
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .contact-item {
+            padding: 1rem;
+        }
+        
+        .contact-item h4 {
+            color: #1a73e8;
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-item p {
+            color: #666;
+            margin: 0.25rem 0;
+        }
+        
+        .contact-item a {
+            color: #1a73e8;
+            text-decoration: none;
+        }
+        
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+        
+        .reviews {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .review-card {
+            background: #f5f5f5;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-top: 4px solid #1a73e8;
+        }
+        
+        .stars {
+            color: #ffc107;
+            margin-bottom: 0.5rem;
+        }
+        
+        .review-card p {
+            color: #666;
+            font-style: italic;
+        }
+        
+        .success-message {
+            background: #d4edda;
+            color: #155724;
+            padding: 1rem;
+            border-radius: 4px;
+            margin: 1rem 0;
+            display: none;
+        }
+        
+        .error-message {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 1rem;
+            border-radius: 4px;
+            margin: 1rem 0;
+            display: none;
+        }
+        
+        footer {
+            background: #333;
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        
+        footer a {
+            color: #1a73e8;
+            text-decoration: none;
+            margin: 0 1rem;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #333;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                width: 100%;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            }
+            
+            nav.active {
+                display: flex;
+            }
+            
+            nav a {
+                margin: 1rem 2rem;
+                display: block;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .header-container {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="#top" class="logo">AMDC</a>
+            <button class="mobile-menu-btn" id="menuBtn">☰</button>
+            <nav id="navMenu">
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#reviews">Reviews</a>
+                <a href="#booking">Book Appointment</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" id="top">
+        <div class="hero-container">
+            <h1>Advanced Medical Diagnostic Center</h1>
+            <p>Comprehensive medical diagnostics and health screening for visa processing and general health checkups</p>
+            <a href="#booking" class="btn">Book Appointment</a>
+            <a href="tel:+923061104524" class="btn btn-white">Call Now</a>
+        </div>
+    </section>
+
+    <div class="container">
+        <section class="section" id="about">
+            <h2>About Us</h2>
+            <div class="about-box">
+                <h3>Your Health, Our Priority</h3>
+                <p>Advanced Medical Diagnostic Center is a leading diagnostic facility in Lahore, Pakistan, specializing in comprehensive medical screening and diagnostics. We serve international patients requiring medical checkups for visa applications, work permits, and general health assessments.</p>
+                <p style="margin-top: 1rem;">Our team of experienced medical professionals is dedicated to providing accurate diagnoses and quality healthcare services in a state-of-the-art facility.</p>
+            </div>
+        </section>
+
+        <section class="section" id="services">
+            <h2>Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Medical Visa Screening</h3>
+                    <p>Comprehensive health checkups required for visa applications, work permits, and international travel documentation.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Laboratory Tests</h3>
+                    <p>Full range of blood tests, urinalysis, and pathological investigations using modern equipment.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Imaging Services</h3>
+                    <p>X-ray, ultrasound, and other imaging services for diagnostic purposes.</p>
+                </div>
+                <div class="service-card">
+                    <h3>General Health Checkup</h3>
+                    <p>Comprehensive health assessment including physical examination and necessary investigations.</p>
+                </div>
+                <div class="service-card">
+                    <h3>ECG & Cardiac Screening</h3>
+                    <p>Electrocardiogram and cardiac assessment for complete cardiovascular evaluation.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Report Generation</h3>
+                    <p>Fast and reliable report generation certified and ready for visa submission.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="reviews">
+            <h2>What Patients Say</h2>
+            <div class="reviews">
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Professional staff, quick service, and accurate reports. Highly recommended for visa medical."</p>
+                </div>
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Great diagnostic center. The doctors are very professional and attentive to patient concerns."</p>
+                </div>
+                <div class="review-card">
+                    <div class="stars">★★★★☆</div>
+                    <p>"Good service and reasonable prices. The waiting time was minimal and staff was helpful."</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="booking">
+            <h2>Book an Appointment</h2>
+            <div class="form-container">
+                <form id="appointmentForm">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email (Optional)</label>
+                        <input type="email" id="email" name="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Service Required *</label>
+                        <select id="service" name="service" required>
+                            <option value="">Select a service</option>
+                            <option value="visa-screening">Medical Visa Screening</option>
+                            <option value="lab-tests">Laboratory Tests</option>
+                            <option value="general-checkup">General Health Checkup</option>
+                            <option value="imaging">Imaging Services</option>
+                            <option value="cardiac">Cardiac Screening</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Preferred Date *</label>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Additional Information (Optional)</label>
+                        <textarea id="message" name="message"></textarea>
+                    </div>
+                    <button type="submit" class="btn">Request Appointment</button>
+                    <div class="success-message" id="successMsg">Your appointment request has been sent. We will contact you shortly.</div>
+                    <div class="error-message" id="errorMsg">Please fill in all required fields correctly.</div>
+                </form>
+            </div>
+        </section>
+
+        <section class="section" id="contact">
+            <h2>Contact Us</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h4>📍 Address</h4>
+                    <p>9-B, College Block, Allama Iqbal Town</p>
+                    <p>Lahore, Pakistan</p>
+                </div>
+                <div class="contact-item">
+                    <h4>📞 Phone</h4>
+                    <p><a href="tel:+923061104524">+92-306-1104524</a></p>
+                </div>
+                <div class="contact-item">
+                    <h4>✉️ Email</h4>
+                    <p><a href="mailto:advancedmedicaldiagnosticcentre@yahoo.com">advancedmedicaldiagnosticcentre@yahoo.com</a></p>
+                </div>
+                <div class="contact-item">
+                    <h4>🕒 Hours</h4>
+                    <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+                    <p>Saturday: 10:00 AM - 4:00 PM</p>
+                    <p>Sunday: Closed</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Advanced Medical Diagnostic Center. All rights reserved.</p>
+        <p>Lahore, Pakistan | Serving International Patients</p>
+        <a href="#contact">Contact</a> | <a href="#booking">Book Now</a> | <a href="#about">About</a>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menuBtn').addEventListener('click', function() {
+            const menu = document.getElementById('navMenu');
+            menu.classList.toggle('active');
+        });
+
+        // Close menu when link is clicked
+        document.querySelectorAll('#navMenu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('navMenu').classList.remove('active');
+            });
+        });
+
+        // Form submission
+        document.getElementById('appointmentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const service = document.getElementById('service').value;
+            const date = document.getElementById('date').value;
+            
+            // Simple validation
+            if (!name || !phone || !service || !date) {
+                document.getElementById('errorMsg').style.display = 'block';
+                document.getElementById('successMsg').style.display = 'none';
+                return;
+            }
+            
+            // Hide error message
+            document.getElementById('errorMsg').style.display = 'none';
+            
+            // Show success message
+            document.getElementById('successMsg').style.display = 'block';
+            
+            // Reset form
+            this.reset();
+            
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+                document.getElementById('successMsg').style.display = 'none';
+            }, 5000);
+        });
+
+        // Set minimum date to today
+        document.getElementById('date').addEventListener('click', function() {
+            const today = new Date().toISOString().split('T')[0];
+            this.min = today;
+        });
+    </script>
+</body>
+</html>
