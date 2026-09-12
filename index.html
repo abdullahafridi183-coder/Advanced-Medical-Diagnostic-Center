@@ -373,6 +373,122 @@
     padding: 11px 15px;
   }
 }
+
+        /* =========================
+   FEEDBACK SECTION
+========================= */
+
+.feedback-section {
+  padding: 80px 20px;
+  background: #f7faf9;
+}
+
+.feedback-container {
+  max-width: 650px;
+  margin: auto;
+  text-align: center;
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+}
+
+.feedback-container h2 {
+  margin-bottom: 10px;
+}
+
+.feedback-container > p {
+  color: #666;
+  margin-bottom: 25px;
+}
+
+/* Stars */
+
+.rating {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin: 20px 0 25px;
+}
+
+.star {
+  font-size: 40px;
+  color: #d5d5d5;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.star:hover,
+.star.active {
+  color: #f5b301;
+  transform: scale(1.1);
+}
+
+/* Inputs */
+
+#feedbackForm input,
+#feedbackForm textarea {
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: 14px;
+  margin-bottom: 15px;
+
+  border: 1px solid #ddd;
+  border-radius: 8px;
+
+  font-family: inherit;
+  font-size: 15px;
+}
+
+#feedbackForm textarea {
+  resize: vertical;
+}
+
+#feedbackForm input:focus,
+#feedbackForm textarea:focus {
+  outline: none;
+  border-color: #0f766e;
+}
+
+/* Submit button */
+
+#feedbackForm button {
+  width: 100%;
+  padding: 14px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: #0f766e;
+  color: white;
+
+  font-size: 16px;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#feedbackForm button:hover {
+  opacity: 0.9;
+}
+
+.feedback-success {
+  margin-top: 15px;
+  color: #0f766e;
+  font-weight: 600;
+}
+
+@media (max-width: 600px) {
+  .feedback-container {
+    padding: 25px 20px;
+  }
+
+  .star {
+    font-size: 34px;
+  }
+}
     </style>
 </head>
 <body>
@@ -499,6 +615,52 @@
             </div>
         </section>
 
+        <section class="feedback-section" id="feedback">
+  <div class="feedback-container">
+
+    <h2>Share Your Feedback</h2>
+    <p>We value your experience. Please rate your visit and share your feedback.</p>
+
+    <form id="feedbackForm">
+
+      <!-- Star Rating -->
+      <div class="rating">
+        <span class="star" data-rating="1">★</span>
+        <span class="star" data-rating="2">★</span>
+        <span class="star" data-rating="3">★</span>
+        <span class="star" data-rating="4">★</span>
+        <span class="star" data-rating="5">★</span>
+      </div>
+
+      <input type="hidden" id="rating" name="rating" value="0">
+
+      <!-- Name -->
+      <input
+        type="text"
+        id="feedbackName"
+        placeholder="Your Name"
+        required
+      >
+
+      <!-- Message -->
+      <textarea
+        id="feedbackMessage"
+        placeholder="Write your feedback..."
+        rows="5"
+        required
+      ></textarea>
+
+      <button type="submit">
+        Submit Feedback
+      </button>
+
+      <p id="feedbackSuccess" class="feedback-success"></p>
+
+    </form>
+
+  </div>
+        </section>
+
         <section class="section" id="contact">
             <h2>Contact Us</h2>
             <div class="contact-info">
@@ -582,6 +744,69 @@
             const today = new Date().toISOString().split('T')[0];
             this.min = today;
         });
+
+        // =========================
+// STAR RATING
+// =========================
+
+const stars = document.querySelectorAll(".star");
+const ratingInput = document.getElementById("rating");
+
+stars.forEach((star) => {
+
+  star.addEventListener("click", () => {
+
+    const rating = star.dataset.rating;
+
+    ratingInput.value = rating;
+
+    stars.forEach((s) => {
+      s.classList.remove("active");
+    });
+
+    stars.forEach((s) => {
+      if (s.dataset.rating <= rating) {
+        s.classList.add("active");
+      }
+    });
+
+  });
+
+});
+
+
+// =========================
+// FEEDBACK FORM
+// =========================
+
+const feedbackForm = document.getElementById("feedbackForm");
+
+feedbackForm.addEventListener("submit", function (e) {
+
+  e.preventDefault();
+
+  const rating = ratingInput.value;
+  const name = document.getElementById("feedbackName").value;
+  const message = document.getElementById("feedbackMessage").value;
+  const success = document.getElementById("feedbackSuccess");
+
+  if (rating === "0") {
+    alert("Please select a star rating.");
+    return;
+  }
+
+  success.textContent =
+    `Thank you ${name}! Your ${rating}-star feedback has been received.`;
+
+  feedbackForm.reset();
+
+  ratingInput.value = "0";
+
+  stars.forEach((star) => {
+    star.classList.remove("active");
+  });
+
+});
     </script>
 <a
   href="https://wa.me/923464422378"
